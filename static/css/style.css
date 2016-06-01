@@ -1,0 +1,476 @@
+/*--------------------------------------------------------------
+>>> ABOUT:
+----------------------------------------------------------------
+    Author:         SEM BAKKUM
+    Project:        FUNDA GPS SEARCH
+    Version:        0.8
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENT:
+----------------------------------------------------------------
+# STRUCTURE
+	## GLOBAL SETTINGS #26
+	## HOME #132
+	## FOOTER #484
+# EXTRA CSS
+	## MEDIA QUERIES #506
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+GLOBAL SETTINGS
+--------------------------------------------------------------*/
+html {
+	font-size: 1em;
+}
+
+body {
+	background-color: #E7F1F5;
+	font-family: 'Lato', Helvetica, Verdana, serif;
+	font-weight: 400;
+	line-height: 1.45;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+    margin: 1.414em 0 0.5em;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #264878;
+}
+
+h1 {
+  	font-size: 2.441em;
+}
+
+h2 {
+	font-size: 1.953em;
+	font-weight: 400;
+}
+
+h3 {
+	font-size: 1.563em;
+	font-weight: 200;
+}
+
+h4 {
+	font-size: 1.25em;
+}
+
+a{
+	text-decoration: none;
+}
+
+section{
+	-webkit-transform: translateX(-120%);
+            -ms-transform: translateX(-120%);
+	    transform: translateX(-120%);
+    -webkit-transition: 	all 0.4s ease-in-out;
+		    transition: 	all 0.4s ease-in-out;
+}
+
+.active{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+	    transform: translateX(0);
+}
+
+@font-face {
+    font-family: 'Euro';
+    src: local('Baskerville'), local('Palatino'), local('Book Antiqua');
+    unicode-range: U+20AC;
+}
+
+span {
+    font-family: Euro, Arial, sans-serif;
+}
+
+main{
+	z-index: 1;
+}
+
+/*--------------------------------------------------------------
+HEADER SETTINGS
+--------------------------------------------------------------*/
+
+header{
+	display: -webkit-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+	width: 100%;
+	height: 3em;
+	padding: 1em;
+	background-color: #F8B000;
+	border-bottom: .2em solid #83CFEE;
+	position: fixed;
+	z-index: 3;
+}
+
+
+/*--------------------------------------------------------------
+SPINNER SETTINGS
+--------------------------------------------------------------*/
+
+#spinner {
+  width: 40px;
+  height: 40px;
+  background-color: #F8B000;
+  display: none;
+
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+/*--------------------------------------------------------------
+HOME SETTINGS
+--------------------------------------------------------------*/
+
+#home{
+	height: 100vh;
+	height: calc(100vh - 5em);
+	text-align: center;
+	background-image: url(//assets.fstatic.nl/795/assets/components/search-banner/images/woonboot-winter-silhouet.svg);
+	background-size: 100vw;
+	background-repeat: no-repeat;	
+	background-position: bottom;
+}
+
+h1{
+	width: 70vw;
+	margin-left: 15vw;
+	margin-top: 4em;
+}
+
+select{
+	-webkit-appearance: menulist-button;
+	height: 2em;
+	width: 50vw;
+	border: none;
+	font-size: 1em;
+	margin-bottom: 3em;
+}
+
+[role="button"]{
+	width: 50%;
+	color: white;
+	background-color: #83CFEE;
+	padding: 1em 4em;
+	border-radius: .5em;
+	margin-left: -.5em;
+}
+
+#search{
+	width: 50vw;
+	margin-left: 25vw;
+}
+
+/*--------------------------------------------------------------
+RESULT SETTINGS
+--------------------------------------------------------------*/
+section > div:first-of-type{
+	margin-top: 5em;
+}
+
+.picture{
+	position: relative;
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+#overlay{
+	background-color: rgba(0,0,0, 0.5);
+	padding: .5em;
+	color: white;
+	margin: 0;
+	position: absolute;
+	z-index: 1;
+	margin-top: -4.1em;
+	left: 0;
+}
+
+#overlay > a >  span:first-of-type{
+	font-size: 1em;
+	font-weight: 800;
+	color: #3888C5;
+}
+
+#overlay > a > img{
+	width: 1.3em;
+}
+
+#overlay > span{
+	font-size: .7em;
+}
+
+.txt-sft.txt-s{
+	margin-left: .2em !important;
+}
+
+.like{
+	z-index: 1;
+	margin-top: .8em;
+	right: 0;
+	margin-right: .8em;
+	color: #83CFEE;
+	position: absolute;
+ box-shadow: 0 0 1px 2px rgba(169,169,169,0.6);
+	border-radius: .3em;
+	background-color: white;
+	padding: .5em 1em; 
+}
+
+.likeColor{
+	color: #F8B000;
+}
+
+/*--------------------------------------------------------------
+LOADER SETTINGS
+--------------------------------------------------------------*/
+
+#loader{
+	display: none;
+}
+
+.activated{
+	display: -webkit-box !important;
+	display: -webkit-flex !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-transform: translateX(0) !important;
+            -ms-transform: translateX(0) !important;
+	    transform: translateX(0) !important;
+	position: absolute;
+	background: rgba(0,0,0, 0.7);
+	top: 0;
+	z-index: 2 !important;
+	width: 100vw;
+	height: 100vh;
+}
+
+.activated + main{
+	-webkit-filter: blur(3px);
+	filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
+	-webkit-filter: blur(3px);
+	        filter: blur(3px);
+}
+
+.activated > h3{
+	color: white;
+	margin-top: -3em;
+	z-index: 5;
+}
+
+.activated > #spinner{
+	display: block;
+	margin-top: 15em;
+	z-index: 4;
+}
+
+/*--------------------------------------------------------------
+MENU SETTINGS
+--------------------------------------------------------------*/
+
+nav{
+	width: 100vw;
+	margin-top: -.7em;
+}
+
+li:first-of-type{
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+}
+
+li:first-of-type > a > img{
+	width: 7em;
+	margin-left: -2em;
+}
+
+ul{
+	list-style-type: none;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	    -ms-flex-pack: end;
+	        justify-content: flex-end;
+}
+
+li{
+	text-decoration: none;
+	-webkit-flex-basis: 3em;
+	    -ms-flex-preferred-size: 3em;
+	        flex-basis: 3em;
+}
+
+li:nth-of-type(3){
+	margin-right: .8em;
+}
+
+li > a > img{
+	width: 2em;
+}
+
+/*--------------------------------------------------------------
+SECTION ANIMATION SETTINGS
+--------------------------------------------------------------*/
+
+#home{
+	z-index: 3;
+}
+
+#overview{
+	z-index: 2;
+}
+
+#likes{
+	z-index: 1;
+}
+
+#home, #overview, #likes{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #E7F1F5;
+}
+
+/*--------------------------------------------------------------
+MEDIA QUERIE SETTINGS
+--------------------------------------------------------------*/
+
+@media screen and (min-width: 40em) {
+
+	select{
+		width: 15vw;
+	}
+
+	#home{
+		background-size: 60vw;
+	}
+
+	li:nth-of-type(3){
+		margin-right: 1em;
+	}
+
+	#overview{
+	    width: 80%;
+	    display: -webkit-box;
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-box-orient: horizontal;
+	    -webkit-box-direction: normal;
+	    -webkit-flex-direction: row;
+	        -ms-flex-direction: row;
+	            flex-direction: row;
+	    -webkit-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	            flex-wrap: wrap;
+	    padding-top: 5em;
+	    padding-left: 10%;
+	}
+
+	#overview > div{
+		-webkit-flex-basis: 50%;
+		    -ms-flex-preferred-size: 50%;
+		        flex-basis: 50%;
+		position: relative;
+	}
+
+	section > div:first-of-type{
+		margin-top: 0;
+	}
+
+	#likes{
+	    width: 80%;
+	    display: -webkit-box;
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -webkit-box-orient: horizontal;
+	    -webkit-box-direction: normal;
+	    -webkit-flex-direction: row;
+	        -ms-flex-direction: row;
+	            flex-direction: row;
+	    -webkit-flex-wrap: wrap;
+	        -ms-flex-wrap: wrap;
+	            flex-wrap: wrap;
+	    padding-top: 5em;
+	    padding-left: 10%;
+	}
+
+	#likes > div{
+		-webkit-flex-basis: 50%;
+		    -ms-flex-preferred-size: 50%;
+		        flex-basis: 50%;
+		position: relative;
+	}
+}
+
+
+
+
+
